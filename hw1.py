@@ -3,6 +3,9 @@ from requests_html import HTMLSession
 session = HTMLSession()
 resp = session.get('https://habr.com/ru/company/yandex/blog/508180/')
 
+# TODO: Определить количество вхождений ключевого слова в title, description, h1.
+# TODO: Определить плотность ключевого слова в процентах в title, description, h1.
+
 title = str(resp.html.xpath('//title/text()'))
 h1 = str(resp.html.xpath('//span[@class="post__title-text"]/text()'))
 keywords = str(resp.html.xpath('//meta[@name="keywords"]/@content'))
