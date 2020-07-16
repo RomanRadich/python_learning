@@ -8,7 +8,7 @@ resp = session.get('https://habr.com/ru/company/yandex/blog/508180/')
 
 title = str(resp.html.xpath('//title/text()'))
 h1 = str(resp.html.xpath('//span[@class="post__title-text"]/text()'))
-keywords = str(resp.html.xpath('//meta[@name="keywords"]/@content'))
+keywords = str(resp.html.xpath('//meta[@name="keywords"]/@content')).replace("'","")
 description = str(resp.html.xpath('//meta[@name="description"]/@content')).replace('\\r\\n','')
 post = str(resp.html.xpath('//div[@id = "post-content-body"]/text()'))
 post = str(post).replace(r"'\n',","")
